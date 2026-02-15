@@ -1,4 +1,4 @@
-# Block 1: Experience
+# 미션 1: Experience
 
 > **Phase A 시작 시 반드시 아래 형태로 출력한다:**
 > ```
@@ -89,4 +89,4 @@ AskUserQuestion({
 })
 ```
 
-> Block 1도 정답이 없는 체험 확인이다.
+> 미션 1도 정답이 없는 체험 확인이다.

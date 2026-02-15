@@ -1,7 +1,7 @@
-# Block 3-Break: 쉬어가기 — 터미널 & Status Line
+# 미션 3-Break: 쉬어가기 — 터미널 & Status Line
 
-> 이 블록은 퀴즈 없이 가볍게 진행한다. Phase A만 있고 Phase B는 없다.
-> 사용자가 "완료" 또는 "다음"이라고 하면 Block 3-5로 넘어간다.
+> 이 미션은 퀴즈 없이 가볍게 진행한다. Phase A만 있고 Phase B는 없다.
+> 사용자가 "완료" 또는 "다음"이라고 하면 미션 3-5로 넘어간다.
 
 ## EXPLAIN
 

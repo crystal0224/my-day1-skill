@@ -1,4 +1,4 @@
-# Block 3-1: CLAUDE.md
+# 미션 3-1: CLAUDE.md
 
 > **Phase A 시작 시 반드시 아래 형태로 출력한다:**
 > ```

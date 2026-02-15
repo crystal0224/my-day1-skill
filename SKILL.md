@@ -51,7 +51,7 @@ AskUserQuestion으로 확인:
 }
 ```
 
-- "네, 이대로 진행합니다" → 블록 선택으로 이동 (아래 5단계)
+- "네, 이대로 진행합니다" → 미션 선택으로 이동 (아래 5단계)
 - "아니요, 프로파일을 다시 설정하겠습니다" → 프로파일링 진행 (아래 3단계)
 
 ### 3. 프로파일 수집 (파일 없음 또는 재설정)
@@ -141,9 +141,9 @@ AskUserQuestion으로 3개 질문을 순서대로 진행:
 이제 당신에게 맞는 예시로 학습을 시작하겠습니다.
 ```
 
-### 5. 블록 선택으로 이동
+### 5. 미션 선택으로 이동
 
-프로파일링 완료 후 바로 블록 선택 단계("시작" 섹션의 2단계)로 진행합니다.
+프로파일링 완료 후 바로 미션 선택 단계("시작" 섹션의 2단계)로 진행합니다.
 
 ---
 
@@ -152,13 +152,13 @@ AskUserQuestion으로 3개 질문을 순서대로 진행:
 > 이 프로토콜은 이 스킬의 최우선 규칙이다.
 > 아래 규칙을 위반하면 수업이 망가진다.
 
-### 각 블록은 반드시 2턴에 걸쳐 진행한다
+### 각 미션은 반드시 2턴에 걸쳐 진행한다
 
 ```
 ┌─ Phase A (첫 번째 턴) ──────────────────────────────┐
-│ 1. references/에서 해당 블록 파일의 EXPLAIN 섹션을 읽는다    │
+│ 1. references/에서 해당 미션 파일의 EXPLAIN 섹션을 읽는다    │
 │ 2. 기능을 설명한다                                        │
-│ 3. references/에서 해당 블록 파일의 EXECUTE 섹션을 읽는다    │
+│ 3. references/에서 해당 미션 파일의 EXECUTE 섹션을 읽는다    │
 │ 4. "지금 직접 실행해보세요"라고 안내한다                     │
 │ 5. ⛔ 여기서 반드시 STOP. 턴을 종료한다.                    │
 │                                                          │
@@ -171,11 +171,11 @@ AskUserQuestion으로 3개 질문을 순서대로 진행:
   ⬇️ 사용자가 돌아와서 "했어", "완료", "다음" 등을 입력한다
 
 ┌─ Phase B (두 번째 턴) ──────────────────────────────┐
-│ 1. references/에서 해당 블록 파일의 QUIZ 섹션을 읽는다       │
+│ 1. references/에서 해당 미션 파일의 QUIZ 섹션을 읽는다       │
 │ 2. AskUserQuestion으로 퀴즈를 출제한다                     │
 │ 3. 정답/오답 피드백을 준다                                 │
-│ 4. 다음 블록으로 이동할지 AskUserQuestion으로 묻는다         │
-│ 5. ⛔ 다음 블록을 시작하면 다시 Phase A부터.                │
+│ 4. 다음 미션으로 이동할지 AskUserQuestion으로 묻는다         │
+│ 5. ⛔ 다음 미션을 시작하면 다시 Phase A부터.                │
 └──────────────────────────────────────────────────────────┘
 ```
 
@@ -189,7 +189,7 @@ AskUserQuestion으로 3개 질문을 순서대로 진행:
 
 ### 공식 문서 URL 출력 (절대 누락 금지)
 
-모든 블록의 Phase A 시작 시, 해당 reference 파일 상단의 `> 공식 문서:` URL을 **반드시 그대로 출력**한다.
+모든 미션의 Phase A 시작 시, 해당 reference 파일 상단의 `> 공식 문서:` URL을 **반드시 그대로 출력**한다.
 
 ```
 📖 공식 문서: [URL]
@@ -211,35 +211,35 @@ Phase A의 마지막에는 반드시 아래 형태의 문구를 출력하고 Sto
 
 이 문구 이후에 어떤 도구 호출(AskUserQuestion 포함)이나 추가 텍스트도 출력하지 않는다.
 
-### 블록 특수 규칙
+### 미션 특수 규칙
 
-- **Block 0 (Setup)**: 퀴즈 없음. Phase B에서 완료 확인만 한다.
-- **Block 1 (Experience)**: 정답 없는 체험 확인. 어떤 선택이든 긍정적 피드백.
-- **Block 2 (Why)**: 설명 없이 바로 퀴즈. Phase A에서 Quiz 1, Phase B에서 Quiz 2 + 영상.
-- **Block 3 (What)**: 각 기능이 독립 블록. 각각 Phase A → Phase B.
-- **Block 3-Break**: Phase A만. 퀴즈 없음. 쉬어가기 블록.
-- **Block 3-Summary**: Phase A만. 퀴즈 없음. 7개 기능 요약 + 직업별 활용 정리.
-- **Block 4 (Basics)**: Phase B에서 퀴즈 3개 연속 (CLI, git, GitHub). 마지막 블록으로 온보딩 완료 축하.
+- **미션 0 (Setup)**: 퀴즈 없음. Phase B에서 완료 확인만 한다.
+- **미션 1 (Experience)**: 정답 없는 체험 확인. 어떤 선택이든 긍정적 피드백.
+- **미션 2 (Why)**: 설명 없이 바로 퀴즈. Phase A에서 Quiz 1, Phase B에서 Quiz 2 + 영상.
+- **미션 3 (What)**: 각 기능이 독립 미션. 각각 Phase A → Phase B.
+- **미션 3-Break**: Phase A만. 퀴즈 없음. 쉬어가기 미션.
+- **미션 3-Summary**: Phase A만. 퀴즈 없음. 7개 기능 요약 + 직업별 활용 정리.
+- **미션 4 (Basics)**: Phase B에서 퀴즈 3개 연속 (CLI, git, GitHub). 마지막 미션으로 온보딩 완료 축하.
 
 ---
 
 ## References 파일 맵
 
-| 블록 | 파일 |
+| 미션 | 파일 |
 |------|------|
-| Block 0 | `references/block0-setup.md` |
-| Block 1 | `references/block1-experience.md` |
-| Block 2 | `references/block2-why.md` |
-| Block 3-1 | `references/block3-1-claude-md.md` |
-| Block 3-2 | `references/block3-2-skill.md` |
-| Block 3-3 | `references/block3-3-mcp.md` |
-| Block 3-4 | `references/block3-4-subagent.md` |
-| Block 3-Break | `references/block3-break.md` |
-| Block 3-5 | `references/block3-5-agent-teams.md` |
-| Block 3-6 | `references/block3-6-hook.md` |
-| Block 3-7 | `references/block3-7-plugin.md` |
-| Block 3-Summary | `references/block3-summary.md` |
-| Block 4 | `references/block4-basics.md` |
+| 미션 0 | `references/block0-setup.md` |
+| 미션 1 | `references/block1-experience.md` |
+| 미션 2 | `references/block2-why.md` |
+| 미션 3-1 | `references/block3-1-claude-md.md` |
+| 미션 3-2 | `references/block3-2-skill.md` |
+| 미션 3-3 | `references/block3-3-mcp.md` |
+| 미션 3-4 | `references/block3-4-subagent.md` |
+| 미션 3-Break | `references/block3-break.md` |
+| 미션 3-5 | `references/block3-5-agent-teams.md` |
+| 미션 3-6 | `references/block3-6-hook.md` |
+| 미션 3-7 | `references/block3-7-plugin.md` |
+| 미션 3-Summary | `references/block3-summary.md` |
+| 미션 4 | `references/block4-basics.md` |
 
 > 파일 경로는 이 SKILL.md 기준 상대경로다.
 > 각 reference 파일은 `## EXPLAIN`, `## EXECUTE`, `## QUIZ` 섹션으로 구성된다.
@@ -248,18 +248,18 @@ Phase A의 마지막에는 반드시 아래 형태의 문구를 출력하고 Sto
 
 ## 진행 규칙
 
-- 한 번에 한 블록씩 진행한다
-- **자유롭게 건너뛰기 가능**: 사용자가 **"skip"**, **"다음"**, **블록 번호** (예: "Block 3-5" 또는 "3-5")를 입력하면 해당 블록으로 이동한다. 순서대로 진행하지 않아도 되며, 이미 아는 내용은 건너뛰어도 된다.
+- 한 번에 한 미션씩 진행한다
+- **자유롭게 건너뛰기 가능**: 사용자가 **"skip"**, **"다음"**, **미션 번호** (예: "미션 3-5" 또는 "3-5")를 입력하면 해당 미션으로 이동한다. 순서대로 진행하지 않아도 되며, 이미 아는 내용은 건너뛰어도 된다.
 - Claude Code 관련 질문이 오면 claude-code-guide 에이전트(내장 도구)로 답변한다. 답변 후 사용자가 직접 따라할 수 있게 단계별로 안내하고, 질문할 때는 AskUserQuestion을 사용한다. 내장 에이전트 답변이 부정확하다고 판단되면, 공식 문서를 `curl`로 파일에 저장한 뒤 Read 툴로 꼼꼼히 읽고 정확한 정보로 다시 답한다 (WebFetch는 요약/손실 위험이 있으므로 사용하지 않는다)
 - 프로파일 변경을 원하면 스킬 재시작 후 "다시 설정" 선택
 
 ---
 
-## Block 0: Setup (Phase A)
+## 미션 0: Setup (Phase A)
 
 ---
 
-📍 **현재 위치: Block 0 (Setup) / 13 블록 중 첫 시작**
+📍 **현재 위치: 미션 0 (Setup) / 13 미션 중 첫 시작**
 
 **지금 배울 것:**
 - Claude Code 설치 방법
@@ -267,9 +267,9 @@ Phase A의 마지막에는 반드시 아래 형태의 문구를 출력하고 Sto
 - CLAUDE.md 파일 만들기
 
 **앞으로 배울 것:**
-- Block 1~2: Claude Code 체험 + 왜 CLI인지 이해
-- Block 3: 7개 핵심 기능 (CLAUDE.md, Skill, MCP, Subagent, Agent Teams, Hook, Plugin)
-- Block 4: CLI + Git + GitHub 기초
+- 미션 1~2: Claude Code 체험 + 왜 CLI인지 이해
+- 미션 3: 7개 핵심 기능 (CLAUDE.md, Skill, MCP, Subagent, Agent Teams, Hook, Plugin)
+- 미션 4: CLI + Git + GitHub 기초
 
 ---
 
@@ -350,13 +350,13 @@ Phase A의 마지막에는 반드시 아래 형태의 문구를 출력하고 Sto
 
 ---
 
-## Block 0: Setup (Phase B)
+## 미션 0: Setup (Phase B)
 
 사용자가 "완료" 또는 "다음" 입력 후 실행한다.
 
 ### 실행 흐름
 
-1. **완료 확인** (Block 0는 퀴즈 대신 완료 확인)
+1. **완료 확인** (미션 0는 퀴즈 대신 완료 확인)
 
    Read references/block0-setup.md → QUIZ 섹션 추출
 
@@ -368,7 +368,7 @@ Phase A의 마지막에는 반드시 아래 형태의 문구를 출력하고 Sto
        "question": "설치와 첫 대화까지 완료했나요?",
        "header": "Setup 확인",
        "options": [
-         {"label": "모두 완료!", "description": "Block 1로 이동"},
+         {"label": "모두 완료!", "description": "미션 1로 이동"},
          {"label": "아직 진행 중", "description": "더 시간이 필요함"},
          {"label": "트러블슈팅 필요", "description": "설치나 실행에 문제 발생"}
        ],
@@ -377,28 +377,28 @@ Phase A의 마지막에는 반드시 아래 형태의 문구를 출력하고 Sto
    })
    ```
 
-   - "모두 완료!" → 축하 메시지 + 다음 블록 안내
+   - "모두 완료!" → 축하 메시지 + 다음 미션 안내
    - "아직 진행 중" → "천천히 하세요. 완료되면 '다음'이라고 입력해주세요."
    - "트러블슈팅 필요" → reference의 트러블슈팅 테이블 다시 안내 + 추가 도움 제공
 
-2. **다음 블록 안내**
+2. **다음 미션 안내**
 
    ```markdown
    ---
 
    설치와 첫 대화를 완료하셨군요! 🎉
-   다음은 Block 1: Experience입니다. Claude Code의 가능성을 직접 체험해봅니다.
+   다음은 미션 1: Experience입니다. Claude Code의 가능성을 직접 체험해봅니다.
    ```
 
-   AskUserQuestion으로 Block 1 진행 여부 확인:
+   AskUserQuestion으로 미션 1 진행 여부 확인:
 
    ```json
    AskUserQuestion({
      "questions": [{
-       "question": "Block 1: Experience로 이동할까요?",
-       "header": "다음 블록",
+       "question": "미션 1: Experience로 이동할까요?",
+       "header": "다음 미션",
        "options": [
-         {"label": "네, 다음으로!", "description": "Block 1 시작"},
+         {"label": "네, 다음으로!", "description": "미션 1 시작"},
          {"label": "잠깐 쉬고 올게요", "description": "나중에 계속"}
        ],
        "multiSelect": false
@@ -408,23 +408,23 @@ Phase A의 마지막에는 반드시 아래 형태의 문구를 출력하고 Sto
 
 ---
 
-## Block 1: Experience (Phase A)
+## 미션 1: Experience (Phase A)
 
 ---
 
-📍 **현재 위치: Block 1 (Experience) / 13 블록 중**
+📍 **현재 위치: 미션 1 (Experience) / 13 미션 중**
 
 **지금까지 배운 것:**
-- Block 0: Claude Code 설치 완료
+- 미션 0: Claude Code 설치 완료
 
 **지금 배울 것:**
 - Working Backward 데모 3가지 체험
 - Claude Code가 실제로 어떻게 동작하는지 직접 경험
 
 **앞으로 배울 것:**
-- Block 2: 왜 CLI인지, 왜 터미널인지 이해
-- Block 3: 7개 핵심 기능 (CLAUDE.md, Skill, MCP, Subagent, Agent Teams, Hook, Plugin)
-- Block 4: CLI + Git + GitHub 기초
+- 미션 2: 왜 CLI인지, 왜 터미널인지 이해
+- 미션 3: 7개 핵심 기능 (CLAUDE.md, Skill, MCP, Subagent, Agent Teams, Hook, Plugin)
+- 미션 4: CLI + Git + GitHub 기초
 
 ---
 
@@ -493,7 +493,7 @@ Phase A의 마지막에는 반드시 아래 형태의 문구를 출력하고 Sto
 
 ---
 
-## Block 1: Experience (Phase B)
+## 미션 1: Experience (Phase B)
 
 사용자가 "완료" 또는 "다음" 입력 후 실행한다.
 
@@ -520,27 +520,27 @@ Phase A의 마지막에는 반드시 아래 형태의 문구를 출력하고 Sto
    })
    ```
 
-   > Block 1은 정답이 없는 체험 확인이다. 어떤 선택이든 긍정적 피드백을 준다.
+   > 미션 1은 정답이 없는 체험 확인이다. 어떤 선택이든 긍정적 피드백을 준다.
 
 2. **선택에 따른 맞춤 피드백**
 
    | 선택 | 피드백 |
    |------|--------|
-   | 데모 1 | "Skill의 힘을 느끼셨군요! Block 3-2에서 직접 만드는 법을 배웁니다." |
+   | 데모 1 | "Skill의 힘을 느끼셨군요! 미션 3-2에서 직접 만드는 법을 배웁니다." |
    | 데모 2 | "AskUserQuestion은 정말 강력합니다. 모호한 요청을 정확하게 만드는 핵심이죠." |
    | 데모 3 | "모르면 물어보는 습관이 가장 중요합니다. Claude는 자신의 기능을 잘 알고 있어요." |
 
-3. **다음 블록 안내**
+3. **다음 미션 안내**
 
-   AskUserQuestion으로 Block 2 진행 여부 확인:
+   AskUserQuestion으로 미션 2 진행 여부 확인:
 
    ```json
    AskUserQuestion({
      "questions": [{
-       "question": "Block 2: Why로 이동할까요?",
-       "header": "다음 블록",
+       "question": "미션 2: Why로 이동할까요?",
+       "header": "다음 미션",
        "options": [
-         {"label": "네, 다음으로!", "description": "Block 2 시작"},
+         {"label": "네, 다음으로!", "description": "미션 2 시작"},
          {"label": "잠깐 쉬고 올게요", "description": "나중에 계속"}
        ],
        "multiSelect": false
@@ -550,9 +550,9 @@ Phase A의 마지막에는 반드시 아래 형태의 문구를 출력하고 Sto
 
 ---
 
-## Block 2: Why (Phase A)
+## 미션 2: Why (Phase A)
 
-> Block 2는 설명 없이 바로 퀴즈로 진행하는 특수 블록이다.
+> 미션 2는 설명 없이 바로 퀴즈로 진행하는 특수 미션이다.
 > Phase A에서 퀴즈 1을 내고, Phase B에서 퀴즈 2 + 영상을 안내한다.
 
 ### 실행 흐름
@@ -575,7 +575,7 @@ Phase A의 마지막에는 반드시 아래 형태의 문구를 출력하고 Sto
    📖 공식 문서: https://code.claude.com/docs/ko/how-claude-code-works#%EC%97%90%EC%9D%B4%EC%A0%84%ED%8A%B8-%EB%A3%A8%ED%94%84
    ```
 
-4. **Quiz 1 출제** (Block 2는 Phase A에서 예외적으로 퀴즈 진행)
+4. **Quiz 1 출제** (미션 2는 Phase A에서 예외적으로 퀴즈 진행)
 
    AskUserQuestion으로 QUIZ-1 섹션의 질문을 출제한다 (원본 그대로):
 
@@ -634,7 +634,7 @@ Phase A의 마지막에는 반드시 아래 형태의 문구를 출력하고 Sto
 
 ---
 
-## Block 2: Why (Phase B)
+## 미션 2: Why (Phase B)
 
 사용자가 "완료" 또는 "다음" 입력 후 실행한다.
 
@@ -692,17 +692,17 @@ Phase A의 마지막에는 반드시 아래 형태의 문구를 출력하고 Sto
    > "AI 분야가 지식 노동보다 더 큰 규모가 될 수 있는 '소프트웨어 공장 카테고리'라고 보고 있다."
    ```
 
-4. **다음 블록 안내**
+4. **다음 미션 안내**
 
-   AskUserQuestion으로 Block 3-1 진행 여부 확인:
+   AskUserQuestion으로 미션 3-1 진행 여부 확인:
 
    ```json
    AskUserQuestion({
      "questions": [{
-       "question": "Block 3-1: CLAUDE.md로 이동할까요?",
-       "header": "다음 블록",
+       "question": "미션 3-1: CLAUDE.md로 이동할까요?",
+       "header": "다음 미션",
        "options": [
-         {"label": "네, 다음으로!", "description": "Block 3-1 시작"},
+         {"label": "네, 다음으로!", "description": "미션 3-1 시작"},
          {"label": "잠깐 쉬고 올게요", "description": "나중에 계속"}
        ],
        "multiSelect": false
@@ -712,14 +712,14 @@ Phase A의 마지막에는 반드시 아래 형태의 문구를 출력하고 Sto
 
 ---
 
-## Block 3-1: CLAUDE.md (Phase A)
+## 미션 3-1: CLAUDE.md (Phase A)
 
 ---
 
-📍 **현재 위치: Block 3-1 (CLAUDE.md) / 13 블록 중**
+📍 **현재 위치: 미션 3-1 (CLAUDE.md) / 13 미션 중**
 
 **지금까지 배운 것:**
-- Block 0~2: Claude Code 설치, 체험, CLI 이유 이해
+- 미션 0~2: Claude Code 설치, 체험, CLI 이유 이해
 
 **지금 배울 것:**
 - CLAUDE.md로 프로젝트별 규칙 저장
@@ -727,7 +727,7 @@ Phase A의 마지막에는 반드시 아래 형태의 문구를 출력하고 Sto
 
 **앞으로 배울 것:**
 - Skill, MCP, Subagent, Agent Teams, Hook, Plugin (6개 기능)
-- Block 4: CLI + Git + GitHub 기초
+- 미션 4: CLI + Git + GitHub 기초
 
 ---
 
@@ -846,7 +846,7 @@ Phase A의 마지막에는 반드시 아래 형태의 문구를 출력하고 Sto
 
 ---
 
-## Block 3-1: CLAUDE.md (Phase B)
+## 미션 3-1: CLAUDE.md (Phase B)
 
 사용자가 "완료" 또는 "다음" 입력 후 실행한다.
 
@@ -917,24 +917,24 @@ Phase A의 마지막에는 반드시 아래 형태의 문구를 출력하고 Sto
    (선택사항이지만 강력 권장합니다!)
    ```
 
-5. **다음 블록 안내**
+5. **다음 미션 안내**
 
    ```markdown
    ---
 
-   이것으로 Block 3-1이 완료되었습니다!
-   다음은 Block 3-2: Skill입니다. 반복 작업을 자동화하는 방법을 배웁니다.
+   이것으로 미션 3-1이 완료되었습니다!
+   다음은 미션 3-2: Skill입니다. 반복 작업을 자동화하는 방법을 배웁니다.
    ```
 
-   AskUserQuestion으로 Block 3-2 진행 여부 확인:
+   AskUserQuestion으로 미션 3-2 진행 여부 확인:
 
    ```json
    AskUserQuestion({
      "questions": [{
-       "question": "Block 3-2: Skill로 이동할까요?",
-       "header": "다음 블록",
+       "question": "미션 3-2: Skill로 이동할까요?",
+       "header": "다음 미션",
        "options": [
-         {"label": "네, 다음으로!", "description": "Block 3-2 시작"},
+         {"label": "네, 다음으로!", "description": "미션 3-2 시작"},
          {"label": "잠깐 쉬고 올게요", "description": "나중에 계속"}
        ],
        "multiSelect": false
@@ -944,11 +944,11 @@ Phase A의 마지막에는 반드시 아래 형태의 문구를 출력하고 Sto
 
 ---
 
-## Block 3-2: Skill (Phase A)
+## 미션 3-2: Skill (Phase A)
 
 ---
 
-📍 **현재 위치: Block 3-2 (Skill) / 13 블록 중**
+📍 **현재 위치: 미션 3-2 (Skill) / 13 미션 중**
 
 **지금까지 배운 것:**
 - CLAUDE.md: 프로젝트 규칙 저장
@@ -959,7 +959,7 @@ Phase A의 마지막에는 반드시 아래 형태의 문구를 출력하고 Sto
 
 **앞으로 배울 것:**
 - MCP, Subagent, 쉬어가기, Agent Teams, Hook, Plugin
-- Block 4: CLI + Git + GitHub 기초
+- 미션 4: CLI + Git + GitHub 기초
 
 ---
 
@@ -1045,7 +1045,7 @@ Phase A의 마지막에는 반드시 아래 형태의 문구를 출력하고 Sto
 
 ---
 
-## Block 3-2: Skill (Phase B)
+## 미션 3-2: Skill (Phase B)
 
 사용자가 "완료" 또는 "다음" 입력 후 실행한다.
 
@@ -1112,15 +1112,15 @@ Phase A의 마지막에는 반드시 아래 형태의 문구를 출력하고 Sto
    | 연구원/학생 | "논문 요약이나 참고문헌 정리를 Skill로 자동화해보세요" |
    | 기타/기본값 | "자주 반복하는 업무 하나를 골라서 Skill로 만들어보세요" |
 
-6. **다음 블록 이동**
+6. **다음 미션 이동**
 
    ```json
    AskUserQuestion({
      "questions": [{
-       "question": "Block 3-3: MCP로 이동할까요?",
-       "header": "다음 블록",
+       "question": "미션 3-3: MCP로 이동할까요?",
+       "header": "다음 미션",
        "options": [
-         {"label": "네, 다음으로!", "description": "Block 3-3 시작"},
+         {"label": "네, 다음으로!", "description": "미션 3-3 시작"},
          {"label": "잠깐 쉬고 올게요", "description": "나중에 계속"}
        ],
        "multiSelect": false
@@ -1130,11 +1130,11 @@ Phase A의 마지막에는 반드시 아래 형태의 문구를 출력하고 Sto
 
 ---
 
-## Block 3-3: MCP (Phase A)
+## 미션 3-3: MCP (Phase A)
 
 ---
 
-📍 **현재 위치: Block 3-3 (MCP) / 13 블록 중**
+📍 **현재 위치: 미션 3-3 (MCP) / 13 미션 중**
 
 **지금까지 배운 것:**
 - CLAUDE.md: 프로젝트 규칙 저장
@@ -1146,7 +1146,7 @@ Phase A의 마지막에는 반드시 아래 형태의 문구를 출력하고 Sto
 
 **앞으로 배울 것:**
 - Subagent, 쉬어가기, Agent Teams, Hook, Plugin
-- Block 4: CLI + Git + GitHub 기초
+- 미션 4: CLI + Git + GitHub 기초
 
 ---
 
@@ -1217,7 +1217,7 @@ Phase A의 마지막에는 반드시 아래 형태의 문구를 출력하고 Sto
 
 ---
 
-## Block 3-3: MCP (Phase B)
+## 미션 3-3: MCP (Phase B)
 
 ### 실행 흐름
 
@@ -1266,14 +1266,14 @@ Phase A의 마지막에는 반드시 아래 형태의 문구를 출력하고 Sto
    | 연구원/학생 | "Zotero나 arXiv MCP를 설정해서 논문 검색을 자동화해보세요" |
    | 기타/기본값 | "자주 쓰는 도구 하나를 골라서 MCP로 연결해보세요" |
 
-4. **다음 블록 이동**
+4. **다음 미션 이동**
    ```json
    AskUserQuestion({
      "questions": [{
-       "question": "Block 3-4: Subagent로 이동할까요?",
-       "header": "다음 블록",
+       "question": "미션 3-4: Subagent로 이동할까요?",
+       "header": "다음 미션",
        "options": [
-         {"label": "네, 다음으로!", "description": "Block 3-4 시작"},
+         {"label": "네, 다음으로!", "description": "미션 3-4 시작"},
          {"label": "잠깐 쉬고 올게요", "description": "나중에 계속"}
        ],
        "multiSelect": false
@@ -1283,11 +1283,11 @@ Phase A의 마지막에는 반드시 아래 형태의 문구를 출력하고 Sto
 
 ---
 
-## Block 3-4: Subagent (Phase A)
+## 미션 3-4: Subagent (Phase A)
 
 ---
 
-📍 **현재 위치: Block 3-4 (Subagent) / 13 블록 중**
+📍 **현재 위치: 미션 3-4 (Subagent) / 13 미션 중**
 
 **지금까지 배운 것:**
 - CLAUDE.md, Skill, MCP
@@ -1299,7 +1299,7 @@ Phase A의 마지막에는 반드시 아래 형태의 문구를 출력하고 Sto
 **앞으로 배울 것:**
 - 쉬어가기 (터미널 & Status Line)
 - Agent Teams, Hook, Plugin
-- Block 4: CLI + Git + GitHub 기초
+- 미션 4: CLI + Git + GitHub 기초
 
 ---
 
@@ -1370,7 +1370,7 @@ Phase A의 마지막에는 반드시 아래 형태의 문구를 출력하고 Sto
 
 ---
 
-## Block 3-4: Subagent (Phase B)
+## 미션 3-4: Subagent (Phase B)
 
 ### 실행 흐름
 
@@ -1421,14 +1421,14 @@ Phase A의 마지막에는 반드시 아래 형태의 문구를 출력하고 Sto
    | 연구원/학생 | "관련 논문이 많다면 Subagent로 읽고 핵심만 정리받아보세요" |
    | 기타/기본값 | "대용량 문서나 파일을 Subagent로 분석해보세요" |
 
-4. **다음 블록 이동**
+4. **다음 미션 이동**
    ```json
    AskUserQuestion({
      "questions": [{
-       "question": "Block 3-Break: 쉬어가기로 이동할까요?",
-       "header": "다음 블록",
+       "question": "미션 3-Break: 쉬어가기로 이동할까요?",
+       "header": "다음 미션",
        "options": [
-         {"label": "네, 다음으로!", "description": "Block 3-Break 시작"},
+         {"label": "네, 다음으로!", "description": "미션 3-Break 시작"},
          {"label": "잠깐 쉬고 올게요", "description": "나중에 계속"}
        ],
        "multiSelect": false
@@ -1438,10 +1438,10 @@ Phase A의 마지막에는 반드시 아래 형태의 문구를 출력하고 Sto
 
 ---
 
-## Block 3-Break: 쉬어가기 (Phase A만)
+## 미션 3-Break: 쉬어가기 (Phase A만)
 
-> 이 블록은 퀴즈 없이 가볍게 진행한다. Phase A만 있고 Phase B는 없다.
-> 사용자가 "완료" 또는 "다음"이라고 하면 Block 3-5로 넘어간다.
+> 이 미션은 퀴즈 없이 가볍게 진행한다. Phase A만 있고 Phase B는 없다.
+> 사용자가 "완료" 또는 "다음"이라고 하면 미션 3-5로 넘어간다.
 
 ### 실행 흐름
 
@@ -1450,7 +1450,7 @@ Phase A의 마지막에는 반드시 아래 형태의 문구를 출력하고 Sto
    Read references/block3-break.md
    ```
    - EXPLAIN, EXECUTE 섹션 파싱
-   - 이 블록에는 QUIZ가 없다
+   - 이 미션에는 QUIZ가 없다
 
 2. **Read 프로파일**
    ```
@@ -1509,15 +1509,15 @@ Phase A의 마지막에는 반드시 아래 형태의 문구를 출력하고 Sto
 
    **이 문구 이후 어떤 도구 호출도 하지 않는다 (STOP PROTOCOL)**
 
-**Phase B 없음** — 사용자가 "완료" 또는 "다음"이라고 하면 바로 Block 3-5로 이동한다.
+**Phase B 없음** — 사용자가 "완료" 또는 "다음"이라고 하면 바로 미션 3-5로 이동한다.
 
 ---
 
-## Block 3-5: Agent Teams (Phase A)
+## 미션 3-5: Agent Teams (Phase A)
 
 ---
 
-📍 **현재 위치: Block 3-5 (Agent Teams) / 13 블록 중**
+📍 **현재 위치: 미션 3-5 (Agent Teams) / 13 미션 중**
 
 **지금까지 배운 것:**
 - 핵심 기능 4개: CLAUDE.md, Skill, MCP, Subagent
@@ -1530,7 +1530,7 @@ Phase A의 마지막에는 반드시 아래 형태의 문구를 출력하고 Sto
 **앞으로 배울 것:**
 - Hook, Plugin (2개 기능)
 - 7개 기능 요약
-- Block 4: CLI + Git + GitHub 기초
+- 미션 4: CLI + Git + GitHub 기초
 
 ---
 
@@ -1621,7 +1621,7 @@ Phase A의 마지막에는 반드시 아래 형태의 문구를 출력하고 Sto
 
 ---
 
-## Block 3-5: Agent Teams (Phase B)
+## 미션 3-5: Agent Teams (Phase B)
 
 사용자가 "완료" 또는 "다음" 입력 후 실행한다.
 
@@ -1692,24 +1692,24 @@ Phase A의 마지막에는 반드시 아래 형태의 문구를 출력하고 Sto
    (선택사항이지만 강력 권장합니다!)
    ```
 
-5. **다음 블록 안내**
+5. **다음 미션 안내**
 
    ```markdown
    ---
 
-   이것으로 Block 3-5가 완료되었습니다!
-   다음은 Block 3-6: Hook입니다. 특정 이벤트 발생 시 자동으로 실행되는 기능을 배웁니다.
+   이것으로 미션 3-5가 완료되었습니다!
+   다음은 미션 3-6: Hook입니다. 특정 이벤트 발생 시 자동으로 실행되는 기능을 배웁니다.
    ```
 
-   AskUserQuestion으로 Block 3-6 진행 여부 확인:
+   AskUserQuestion으로 미션 3-6 진행 여부 확인:
 
    ```json
    AskUserQuestion({
      "questions": [{
-       "question": "Block 3-6: Hook으로 이동할까요?",
-       "header": "다음 블록",
+       "question": "미션 3-6: Hook으로 이동할까요?",
+       "header": "다음 미션",
        "options": [
-         {"label": "네, 다음으로!", "description": "Block 3-6 시작"},
+         {"label": "네, 다음으로!", "description": "미션 3-6 시작"},
          {"label": "잠깐 쉬고 올게요", "description": "나중에 계속"}
        ],
        "multiSelect": false
@@ -1719,11 +1719,11 @@ Phase A의 마지막에는 반드시 아래 형태의 문구를 출력하고 Sto
 
 ---
 
-## Block 3-6: Hook (Phase A)
+## 미션 3-6: Hook (Phase A)
 
 ---
 
-📍 **현재 위치: Block 3-6 (Hook) / 13 블록 중**
+📍 **현재 위치: 미션 3-6 (Hook) / 13 미션 중**
 
 **지금까지 배운 것:**
 - 핵심 기능 5개: CLAUDE.md, Skill, MCP, Subagent, Agent Teams
@@ -1735,7 +1735,7 @@ Phase A의 마지막에는 반드시 아래 형태의 문구를 출력하고 Sto
 **앞으로 배울 것:**
 - Plugin (마지막 핵심 기능!)
 - 7개 기능 요약
-- Block 4: CLI + Git + GitHub 기초
+- 미션 4: CLI + Git + GitHub 기초
 
 ---
 
@@ -1824,7 +1824,7 @@ Phase A의 마지막에는 반드시 아래 형태의 문구를 출력하고 Sto
 
 ---
 
-## Block 3-6: Hook (Phase B)
+## 미션 3-6: Hook (Phase B)
 
 사용자가 "완료" 또는 "다음" 입력 후 실행한다.
 
@@ -1889,24 +1889,24 @@ Phase A의 마지막에는 반드시 아래 형태의 문구를 출력하고 Sto
    (선택사항이지만 강력 권장합니다!)
    ```
 
-4. **다음 블록 안내**
+4. **다음 미션 안내**
 
    ```markdown
    ---
 
-   이것으로 Block 3-6이 완료되었습니다!
-   다음은 Block 3-7: Plugin입니다. 여러 기능을 하나로 묶어서 팀에 공유하는 방법을 배웁니다.
+   이것으로 미션 3-6이 완료되었습니다!
+   다음은 미션 3-7: Plugin입니다. 여러 기능을 하나로 묶어서 팀에 공유하는 방법을 배웁니다.
    ```
 
-   AskUserQuestion으로 Block 3-7 진행 여부 확인:
+   AskUserQuestion으로 미션 3-7 진행 여부 확인:
 
    ```json
    AskUserQuestion({
      "questions": [{
-       "question": "Block 3-7: Plugin으로 이동할까요?",
-       "header": "다음 블록",
+       "question": "미션 3-7: Plugin으로 이동할까요?",
+       "header": "다음 미션",
        "options": [
-         {"label": "네, 다음으로!", "description": "Block 3-7 시작"},
+         {"label": "네, 다음으로!", "description": "미션 3-7 시작"},
          {"label": "잠깐 쉬고 올게요", "description": "나중에 계속"}
        ],
        "multiSelect": false
@@ -1916,11 +1916,11 @@ Phase A의 마지막에는 반드시 아래 형태의 문구를 출력하고 Sto
 
 ---
 
-## Block 3-7: Plugin (Phase A)
+## 미션 3-7: Plugin (Phase A)
 
 ---
 
-📍 **현재 위치: Block 3-7 (Plugin) / 13 블록 중**
+📍 **현재 위치: 미션 3-7 (Plugin) / 13 미션 중**
 
 **지금까지 배운 것:**
 - 핵심 기능 6개: CLAUDE.md, Skill, MCP, Subagent, Agent Teams, Hook
@@ -1931,7 +1931,7 @@ Phase A의 마지막에는 반드시 아래 형태의 문구를 출력하고 Sto
 
 **앞으로 배울 것:**
 - 7개 기능 요약 (전체 복습)
-- Block 4: CLI + Git + GitHub 기초 (마지막 블록!)
+- 미션 4: CLI + Git + GitHub 기초 (마지막 미션!)
 
 ---
 
@@ -2034,7 +2034,7 @@ Phase A의 마지막에는 반드시 아래 형태의 문구를 출력하고 Sto
 
 ---
 
-## Block 3-7: Plugin (Phase B)
+## 미션 3-7: Plugin (Phase B)
 
 사용자가 "완료" 또는 "다음" 입력 후 실행한다.
 
@@ -2100,24 +2100,24 @@ Phase A의 마지막에는 반드시 아래 형태의 문구를 출력하고 Sto
    (선택사항이지만 강력 권장합니다!)
    ```
 
-4. **다음 블록 안내**
+4. **다음 미션 안내**
 
    ```markdown
    ---
 
-   이것으로 Block 3-7이 완료되었습니다!
-   다음은 Block 3-Summary: 7개 기능 요약입니다. 지금까지 배운 기능들의 관계를 정리합니다.
+   이것으로 미션 3-7이 완료되었습니다!
+   다음은 미션 3-Summary: 7개 기능 요약입니다. 지금까지 배운 기능들의 관계를 정리합니다.
    ```
 
-   AskUserQuestion으로 Block 3-Summary 진행 여부 확인:
+   AskUserQuestion으로 미션 3-Summary 진행 여부 확인:
 
    ```json
    AskUserQuestion({
      "questions": [{
-       "question": "Block 3-Summary: 7개 기능 요약으로 이동할까요?",
-       "header": "다음 블록",
+       "question": "미션 3-Summary: 7개 기능 요약으로 이동할까요?",
+       "header": "다음 미션",
        "options": [
-         {"label": "네, 다음으로!", "description": "Block 3-Summary 시작"},
+         {"label": "네, 다음으로!", "description": "미션 3-Summary 시작"},
          {"label": "잠깐 쉬고 올게요", "description": "나중에 계속"}
        ],
        "multiSelect": false
@@ -2127,9 +2127,9 @@ Phase A의 마지막에는 반드시 아래 형태의 문구를 출력하고 Sto
 
 ---
 
-## Block 3-Summary: 7개 기능 요약 (Phase A만)
+## 미션 3-Summary: 7개 기능 요약 (Phase A만)
 
-> Block 3-Summary는 Phase B 없이 Phase A만 진행한다. 퀴즈 없음.
+> 미션 3-Summary는 Phase B 없이 Phase A만 진행한다. 퀴즈 없음.
 
 ### 실행 흐름
 
@@ -2184,26 +2184,26 @@ Phase A의 마지막에는 반드시 아래 형태의 문구를 출력하고 Sto
    | 연구원/학생 | "CLAUDE.md에 연구 규칙 저장 → Skill로 논문 검색 자동화 → MCP로 학술 DB 연동 → Subagent로 데이터 분석 → Agent Teams로 공동 연구 협업 → Hook으로 실험 결과 알림 → Plugin으로 연구실 공유" |
    | 기타/기본값 | "7개 기능이 어떻게 연결되는지 관계도를 참고하세요. 전부 외울 필요 없습니다. 모르면 Claude에게 물어보면 됩니다." |
 
-6. **Block 4 예고 및 이동**
+6. **미션 4 예고 및 이동**
 
    ```markdown
    ---
 
-   Block 3이 모두 끝났습니다!
+   미션 3이 모두 끝났습니다!
    이제 기본기(CLI, Git, GitHub)를 배워볼 차례입니다.
 
    전부 외울 필요 없습니다. 모르면 Claude에게 물어보면 됩니다.
    ```
 
-   AskUserQuestion으로 Block 4 진행 여부 확인:
+   AskUserQuestion으로 미션 4 진행 여부 확인:
 
    ```json
    AskUserQuestion({
      "questions": [{
-       "question": "Block 4: Basics로 이동할까요?",
-       "header": "다음 블록",
+       "question": "미션 4: Basics로 이동할까요?",
+       "header": "다음 미션",
        "options": [
-         {"label": "네, 다음으로!", "description": "Block 4 시작"},
+         {"label": "네, 다음으로!", "description": "미션 4 시작"},
          {"label": "잠깐 쉬고 올게요", "description": "나중에 계속"}
        ],
        "multiSelect": false
@@ -2211,15 +2211,15 @@ Phase A의 마지막에는 반드시 아래 형태의 문구를 출력하고 Sto
    })
    ```
 
-   **Phase B 없음 — 바로 Block 4로 이동**
+   **Phase B 없음 — 바로 미션 4로 이동**
 
 ---
 
-## Block 4: Basics (Phase A)
+## 미션 4: Basics (Phase A)
 
 ---
 
-📍 **현재 위치: Block 4 (Basics) / 13 블록 중 마지막!**
+📍 **현재 위치: 미션 4 (Basics) / 13 미션 중 마지막!**
 
 **지금까지 배운 것:**
 - 🎉 **Claude Code 전체 기능 학습 완료!**
@@ -2333,7 +2333,7 @@ Phase A의 마지막에는 반드시 아래 형태의 문구를 출력하고 Sto
 
 ---
 
-## Block 4: Basics (Phase B)
+## 미션 4: Basics (Phase B)
 
 사용자가 "완료" 또는 "다음" 입력 후 실행한다.
 
@@ -2417,11 +2417,11 @@ Phase A의 마지막에는 반드시 아래 형태의 문구를 출력하고 Sto
    🎉 **Day 1 온보딩을 모두 완료하셨습니다!**
 
    오늘 배운 것:
-   - Block 0: Claude Code 설치 + 첫 대화
-   - Block 1: Working Backward 데모 3가지 체험
-   - Block 2: 왜 CLI? 왜 터미널?
-   - Block 3: 7개 핵심 기능 (CLAUDE.md, Skill, MCP, Subagent, Agent Teams, Hook, Plugin)
-   - Block 4: CLI + Git + GitHub 기초
+   - 미션 0: Claude Code 설치 + 첫 대화
+   - 미션 1: Working Backward 데모 3가지 체험
+   - 미션 2: 왜 CLI? 왜 터미널?
+   - 미션 3: 7개 핵심 기능 (CLAUDE.md, Skill, MCP, Subagent, Agent Teams, Hook, Plugin)
+   - 미션 4: CLI + Git + GitHub 기초
 
    앞으로 모르는 게 있으면 Claude에게 물어보세요.
    ```
@@ -2458,7 +2458,7 @@ Phase A의 마지막에는 반드시 아래 형태의 문구를 출력하고 Sto
 
 ### 2단계: 온보딩 가이드 안내
 
-프로파일링이 완료되면 블록 선택 전에 아래 온보딩 가이드를 표시합니다:
+프로파일링이 완료되면 미션 선택 전에 아래 온보딩 가이드를 표시합니다:
 
 ```markdown
 ---
@@ -2469,12 +2469,12 @@ Phase A의 마지막에는 반드시 아래 형태의 문구를 출력하고 Sto
 
 ## 📖 이 온보딩의 구조
 
-**1. 13개 블록으로 구성**
-- Block 0 (Setup) → Block 1 (Experience) → Block 2 (Why)
-- Block 3-1~3-7 (7개 핵심 기능) → Block 3-Summary (요약)
-- Block 4 (Basics: CLI + Git + GitHub)
+**1. 13개 미션으로 구성**
+- 미션 0 (Setup) → 미션 1 (Experience) → 미션 2 (Why)
+- 미션 3-1~3-7 (7개 핵심 기능) → 미션 3-Summary (요약)
+- 미션 4 (Basics: CLI + Git + GitHub)
 
-**2. 각 블록은 2단계 (Phase A → Phase B)**
+**2. 각 미션은 2단계 (Phase A → Phase B)**
 - **Phase A**: 개념 설명 + 실습 안내
   - Claude가 설명하고, **당신이 직접 해봅니다**
   - "완료" 또는 "다음"이라고 입력하면 Phase B로 이동
@@ -2485,22 +2485,22 @@ Phase A의 마지막에는 반드시 아래 형태의 문구를 출력하고 Sto
 **3. 자유롭게 이동 가능 (이미 아는 내용은 건너뛰세요!)**
 
 **✅ 스킵 방법 3가지:**
-1. **"skip" 또는 "다음"** 입력 → 다음 블록으로 바로 이동
-2. **"Block 3-5"** 입력 → 특정 블록으로 점프
-3. **"3-5"** (번호만) 입력 → 특정 블록으로 점프
+1. **"skip" 또는 "다음"** 입력 → 다음 미션으로 바로 이동
+2. **"미션 3-5"** 입력 → 특정 미션으로 점프
+3. **"3-5"** (번호만) 입력 → 특정 미션으로 점프
 
 **언제 스킵하면 좋을까요?**
-- ✓ 이미 아는 내용일 때 (예: CLAUDE.md를 이미 쓰고 있다면 Block 3-1 스킵)
-- ✓ 지금 당장 필요 없는 내용일 때 (예: MCP는 나중에 배우고 싶다면 Block 3-3 스킵)
-- ✓ 순서를 바꿔서 배우고 싶을 때 (Block 4부터 시작해도 됩니다!)
+- ✓ 이미 아는 내용일 때 (예: CLAUDE.md를 이미 쓰고 있다면 미션 3-1 스킵)
+- ✓ 지금 당장 필요 없는 내용일 때 (예: MCP는 나중에 배우고 싶다면 미션 3-3 스킵)
+- ✓ 순서를 바꿔서 배우고 싶을 때 (미션 4부터 시작해도 됩니다!)
 
 **순서대로 안 해도 됩니다. 자유롭게 이동하세요!**
 
 ## 💡 진행 팁
 
-**각 블록마다 이렇게 표시됩니다:**
+**각 미션마다 이렇게 표시됩니다:**
 ```
-📍 현재 위치: Block 3-2 / 13 블록 중
+📍 현재 위치: 미션 3-2 / 13 미션 중
 지금까지: CLAUDE.md로 프로젝트 규칙 저장
 지금 배울 것: Skill로 반복 작업 자동화
 앞으로: MCP, Subagent 등 5개 기능
@@ -2510,10 +2510,10 @@ Phase A의 마지막에는 반드시 아래 형태의 문구를 출력하고 Sto
 
 ---
 
-준비되셨나요? 아래 커리큘럼에서 시작할 블록을 선택해주세요.
+준비되셨나요? 아래 커리큘럼에서 시작할 미션을 선택해주세요.
 ```
 
-### 3단계: 블록 선택
+### 3단계: 미션 선택
 
 커리큘럼 테이블 표시:
 
@@ -2537,33 +2537,33 @@ Phase A의 마지막에는 반드시 아래 형태의 문구를 출력하고 Sto
 | 4 | Basics | CLI + Git + GitHub |
 ```
 
-AskUserQuestion으로 블록 선택:
+AskUserQuestion으로 미션 선택:
 
 ```json
 {
   "questions": [{
-    "question": "어느 블록부터 시작할까요?",
-    "header": "시작 블록",
+    "question": "어느 미션부터 시작할까요?",
+    "header": "시작 미션",
     "options": [
-      {"label": "Block 0: Setup", "description": "Claude Code 설치 + 첫 대화"},
-      {"label": "Block 1: Experience", "description": "Working Backward 데모 3가지"},
-      {"label": "Block 2: Why", "description": "왜 CLI? 왜 터미널?"},
-      {"label": "Block 3-1: CLAUDE.md", "description": "프로젝트별 기억 저장"},
-      {"label": "Block 3-2: Skill", "description": "반복 작업 자동화"},
-      {"label": "Block 3-3: MCP", "description": "외부 도구 연동"},
-      {"label": "Block 3-4: Subagent", "description": "작업 위임"},
-      {"label": "Block 3-Break: 쉬어가기", "description": "터미널 소개 + Status Line"},
-      {"label": "Block 3-5: Agent Teams", "description": "팀 협업"},
-      {"label": "Block 3-6: Hook", "description": "이벤트 자동화"},
-      {"label": "Block 3-7: Plugin", "description": "확장 기능"},
-      {"label": "Block 3-Summary: 요약", "description": "7개 기능 관계도"},
-      {"label": "Block 4: Basics", "description": "CLI + Git + GitHub"}
+      {"label": "미션 0: Setup", "description": "Claude Code 설치 + 첫 대화"},
+      {"label": "미션 1: Experience", "description": "Working Backward 데모 3가지"},
+      {"label": "미션 2: Why", "description": "왜 CLI? 왜 터미널?"},
+      {"label": "미션 3-1: CLAUDE.md", "description": "프로젝트별 기억 저장"},
+      {"label": "미션 3-2: Skill", "description": "반복 작업 자동화"},
+      {"label": "미션 3-3: MCP", "description": "외부 도구 연동"},
+      {"label": "미션 3-4: Subagent", "description": "작업 위임"},
+      {"label": "미션 3-Break: 쉬어가기", "description": "터미널 소개 + Status Line"},
+      {"label": "미션 3-5: Agent Teams", "description": "팀 협업"},
+      {"label": "미션 3-6: Hook", "description": "이벤트 자동화"},
+      {"label": "미션 3-7: Plugin", "description": "확장 기능"},
+      {"label": "미션 3-Summary: 요약", "description": "7개 기능 관계도"},
+      {"label": "미션 4: Basics", "description": "CLI + Git + GitHub"}
     ],
     "multiSelect": false
   }]
 }
 ```
 
-### 3단계: 선택된 블록 실행
+### 3단계: 선택된 미션 실행
 
-선택된 블록의 Phase A를 시작합니다. STOP PROTOCOL을 반드시 준수합니다.
+선택된 미션의 Phase A를 시작합니다. STOP PROTOCOL을 반드시 준수합니다.
