@@ -107,7 +107,7 @@ AskUserQuestion으로 확인:
 }
 ```
 
-- "네, 이대로 진행합니다" → 미션 선택으로 이동 (아래 5단계)
+- "네, 이대로 진행합니다" → 학습 경로 선택으로 이동 (아래 5단계)
 - "아니요, 프로파일을 다시 설정하겠습니다" → 프로파일링 진행 (아래 3단계)
 
 ### 3. 프로파일 수집 (파일 없음 또는 재설정)
@@ -296,21 +296,55 @@ Phase A의 마지막에는 반드시 아래 형태의 문구를 출력하고 Sto
 | 미션 3-7 | `references/block3-7-plugin.md` |
 | 미션 3-Summary | `references/block3-summary.md` |
 | 미션 4 | `references/block4-basics.md` |
+| 용어 사전 | `references/glossary.md` |
 
 > 파일 경로는 이 SKILL.md 기준 상대경로다.
 > 각 reference 파일은 `## EXPLAIN`, `## EXECUTE`, `## QUIZ` 섹션으로 구성된다.
+> `glossary.md`는 15개 기술 용어의 직업별 비유 사전이다.
 
 ---
 
 ## 진행 규칙
 
 - 한 번에 한 미션씩 진행한다
+- **학습 경로에 따라 미션 진행**: 빠른 시작(필수 7개), 전체 과정(13개), 커스텀(사용자 선택) 중 선택한 경로에 따라 다음 미션을 자동 안내한다. 사용자가 "다음"을 입력하면 경로에 맞는 다음 미션으로 이동한다.
 - **자유롭게 건너뛰기 가능**: 사용자가 **"skip"**, **"다음"**, **미션 번호** (예: "미션 3-5" 또는 "3-5")를 입력하면 해당 미션으로 이동한다. 순서대로 진행하지 않아도 되며, 이미 아는 내용은 건너뛰어도 된다.
 - **막혔을 때 "help" 입력**: 상황별 도움말 제공 (Help 시스템 섹션 참조)
 - **미션 완료 시 진행 상황 자동 저장**: 프로파일에 완료한 미션, 배지 등 기록 (진행 상황 저장 섹션 참조)
 - **재진입 지원**: 중간에 이탈하더라도 다음 접속 시 이어하기/처음부터/특정 미션 선택 가능
 - Claude Code 관련 질문이 오면 claude-code-guide 에이전트(내장 도구)로 답변한다. 답변 후 사용자가 직접 따라할 수 있게 단계별로 안내하고, 질문할 때는 AskUserQuestion을 사용한다. 내장 에이전트 답변이 부정확하다고 판단되면, 공식 문서를 `curl`로 파일에 저장한 뒤 Read 툴로 꼼꼼히 읽고 정확한 정보로 다시 답한다 (WebFetch는 요약/손실 위험이 있으므로 사용하지 않는다)
 - 프로파일 변경을 원하면 스킬 재시작 후 "다시 설정" 선택
+
+---
+
+## 용어 설명 시스템
+
+기술 용어가 처음 나올 때 자동으로 비유를 괄호 안에 삽입한다.
+
+### 동작 방식
+
+1. **용어 첫 출현 감지**: 아래 15개 용어가 대화에서 처음 나올 때 작동
+2. **사용자 프로파일의 직업 확인**: 프로파일에서 직업 정보를 가져옴
+3. **`references/glossary.md`에서 해당 직업의 비유 로드**: 직업 섹션의 비유를 읽음
+4. **용어 뒤에 괄호로 비유 삽입**: 짧게 요약하여 괄호 안에 추가
+
+### 대상 용어 (15개)
+
+CLI, 터미널, git, commit, CLAUDE.md, Skill, MCP, Subagent, Agent Teams, Hook, Plugin, Phase A/B, push, pull, branch
+
+### 예시 (직업별 비유 삽입)
+
+- **일반 사무**: "CLI(텍스트로 컴퓨터에 명령하는 방법)를 사용해서..."
+- **개발자**: "CLI(GUI 대신 터미널에서 모든 걸 제어하는 인터페이스)를 사용해서..."
+- **디자이너**: "CLI(Figma 단축키의 강력 버전)를 사용해서..."
+- **데이터 분석가**: "CLI(SQL 쿼리처럼 텍스트 명령으로 제어하는 방법)를 사용해서..."
+
+### 규칙
+
+- **첫 출현 시에만** 비유를 삽입한다. 같은 용어가 반복 등장하면 비유 없이 용어만 사용.
+- 비유는 **한 문장 이내**로 짧게 요약하여 괄호 안에 넣는다.
+- 개발자(백엔드/프론트엔드/풀스택)에게는 기술적 설명 위주, 비개발자에게는 일상 비유 위주로 삽입.
+- 터미널 경험이 "익숙해요"인 사용자에게는 기본 용어(CLI, 터미널, git, commit)의 비유를 생략할 수 있다.
 
 ---
 
@@ -2597,10 +2631,10 @@ Phase A의 마지막에는 반드시 아래 형태의 문구를 출력하고 Sto
 
 ## 📖 이 온보딩의 구조
 
-**1. 13개 미션으로 구성**
-- 미션 0 (Setup) → 미션 1 (Experience) → 미션 2 (Why)
-- 미션 3-1~3-7 (7개 핵심 기능) → 미션 3-Summary (요약)
-- 미션 4 (Basics: CLI + Git + GitHub)
+**1. 3가지 학습 경로**
+- ⭐ **빠른 시작** (추천): 필수 7개 미션만 / 1~1.5시간
+- **전체 과정**: 13개 미션 전부 / 2~3시간
+- **커스텀**: 필요한 미션만 골라서 학습
 
 **2. 각 미션은 2단계 (Phase A → Phase B)**
 - **Phase A**: 개념 설명 + 실습 안내
@@ -2638,31 +2672,68 @@ Phase A의 마지막에는 반드시 아래 형태의 문구를 출력하고 Sto
 
 ---
 
-준비되셨나요? 아래 커리큘럼에서 시작할 미션을 선택해주세요.
+준비되셨나요? 학습 경로를 선택해주세요.
 ```
 
-### 3단계: 미션 선택
+### 3단계: 학습 경로 선택
+
+프로파일 확인 후, 사용자에게 학습 경로를 선택하도록 안내한다:
+
+```json
+AskUserQuestion({
+  "questions": [{
+    "question": "어떻게 시작하시겠어요?",
+    "header": "학습 경로",
+    "options": [
+      {
+        "label": "빠른 시작 (필수 7개만) ⭐ 추천",
+        "description": "핵심만 배우고 바로 실무 적용 | 예상 시간: 1~1.5시간"
+      },
+      {
+        "label": "전체 과정 (13개 전부)",
+        "description": "모든 기능을 깊이 있게 학습 | 예상 시간: 2~3시간"
+      },
+      {
+        "label": "특정 미션만 선택",
+        "description": "필요한 것만 골라서 학습"
+      }
+    ],
+    "multiSelect": false
+  }]
+})
+```
+
+**경로별 처리:**
+
+- **빠른 시작**: `learning_path = "essential"`. 필수 7개 미션만 순서대로 진행 (0 → 1 → 3-1 → 3-2 → 3-4 → 3-Summary → 4). 바로 미션 0 Phase A를 시작한다.
+- **전체 과정**: `learning_path = "full"`. 13개 미션 순서대로 진행. 바로 미션 0 Phase A를 시작한다.
+- **특정 미션 선택**: `learning_path = "custom"`. 아래 4단계의 미션 선택 화면을 표시한다.
+
+### 4단계: 미션 선택 (커스텀 경로 전용)
+
+"특정 미션 선택" 경로를 선택한 경우에만 이 단계를 표시한다.
+"빠른 시작" 또는 "전체 과정"을 선택한 경우, 이 단계를 건너뛰고 미션 0 Phase A를 바로 시작한다.
 
 커리큘럼 테이블 표시:
 
 ```
 📚 커리큘럼
 
-| Block | 주제 | 내용 |
-|-------|------|------|
-| 0 | Setup | Claude Code 설치 + 첫 대화 |
-| 1 | Experience | Working Backward 데모 3가지 |
-| 2 | Why | 왜 CLI? 왜 터미널? |
-| 3-1 | CLAUDE.md | 프로젝트별 기억 저장 |
-| 3-2 | Skill | 반복 작업 자동화 |
-| 3-3 | MCP | 외부 도구 연동 |
-| 3-4 | Subagent | 작업 위임 |
-| 3-Break | 쉬어가기 | 터미널 소개 + Status Line |
-| 3-5 | Agent Teams | 팀 협업 |
-| 3-6 | Hook | 이벤트 자동화 |
-| 3-7 | Plugin | 확장 기능 |
-| 3-Summary | 요약 | 7개 기능 관계도 |
-| 4 | Basics | CLI + Git + GitHub |
+| 미션 | 주제 | 내용 | 분류 |
+|------|------|------|------|
+| 0 | Setup | Claude Code 설치 + 첫 대화 | ⭐ 필수 |
+| 1 | Experience | Working Backward 데모 3가지 | ⭐ 필수 |
+| 2 | Why | 왜 CLI? 왜 터미널? | 🔷 심화 |
+| 3-1 | CLAUDE.md | 프로젝트별 기억 저장 | ⭐ 필수 |
+| 3-2 | Skill | 반복 작업 자동화 | ⭐ 필수 |
+| 3-3 | MCP | 외부 도구 연동 | 🔷 심화 |
+| 3-4 | Subagent | 작업 위임 | ⭐ 필수 |
+| 3-Break | 쉬어가기 | 터미널 소개 + Status Line | 🔷 심화 |
+| 3-5 | Agent Teams | 팀 협업 | 🔷 심화 |
+| 3-6 | Hook | 이벤트 자동화 | 🔷 심화 |
+| 3-7 | Plugin | 확장 기능 | 🔷 심화 |
+| 3-Summary | 요약 | 7개 기능 관계도 | ⭐ 필수 |
+| 4 | Basics | CLI + Git + GitHub | ⭐ 필수 |
 ```
 
 AskUserQuestion으로 미션 선택:
@@ -2673,28 +2744,30 @@ AskUserQuestion으로 미션 선택:
     "question": "어느 미션부터 시작할까요?",
     "header": "시작 미션",
     "options": [
-      {"label": "미션 0: Setup", "description": "Claude Code 설치 + 첫 대화"},
-      {"label": "미션 1: Experience", "description": "Working Backward 데모 3가지"},
-      {"label": "미션 2: Why", "description": "왜 CLI? 왜 터미널?"},
-      {"label": "미션 3-1: CLAUDE.md", "description": "프로젝트별 기억 저장"},
-      {"label": "미션 3-2: Skill", "description": "반복 작업 자동화"},
-      {"label": "미션 3-3: MCP", "description": "외부 도구 연동"},
-      {"label": "미션 3-4: Subagent", "description": "작업 위임"},
-      {"label": "미션 3-Break: 쉬어가기", "description": "터미널 소개 + Status Line"},
-      {"label": "미션 3-5: Agent Teams", "description": "팀 협업"},
-      {"label": "미션 3-6: Hook", "description": "이벤트 자동화"},
-      {"label": "미션 3-7: Plugin", "description": "확장 기능"},
-      {"label": "미션 3-Summary: 요약", "description": "7개 기능 관계도"},
-      {"label": "미션 4: Basics", "description": "CLI + Git + GitHub"}
+      {"label": "미션 0: Setup ⭐", "description": "Claude Code 설치 + 첫 대화"},
+      {"label": "미션 1: Experience ⭐", "description": "Working Backward 데모 3가지"},
+      {"label": "미션 2: Why 🔷", "description": "왜 CLI? 왜 터미널?"},
+      {"label": "미션 3-1: CLAUDE.md ⭐", "description": "프로젝트별 기억 저장"},
+      {"label": "미션 3-2: Skill ⭐", "description": "반복 작업 자동화"},
+      {"label": "미션 3-3: MCP 🔷", "description": "외부 도구 연동"},
+      {"label": "미션 3-4: Subagent ⭐", "description": "작업 위임"},
+      {"label": "미션 3-Break: 쉬어가기 🔷", "description": "터미널 소개 + Status Line"},
+      {"label": "미션 3-5: Agent Teams 🔷", "description": "팀 협업"},
+      {"label": "미션 3-6: Hook 🔷", "description": "이벤트 자동화"},
+      {"label": "미션 3-7: Plugin 🔷", "description": "확장 기능"},
+      {"label": "미션 3-Summary: 요약 ⭐", "description": "7개 기능 관계도"},
+      {"label": "미션 4: Basics ⭐", "description": "CLI + Git + GitHub"}
     ],
     "multiSelect": false
   }]
 }
 ```
 
-### 3단계: 선택된 미션 실행
+### 5단계: 선택된 미션 실행
 
 선택된 미션의 Phase A를 시작합니다. STOP PROTOCOL을 반드시 준수합니다.
+
+미션 완료 후에는 "학습 경로 상태" 섹션의 "미션 완료 후 다음 미션 안내" 규칙에 따라 다음 미션을 자동 안내한다.
 
 ---
 
