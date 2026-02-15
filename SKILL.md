@@ -249,13 +249,29 @@ Phase A의 마지막에는 반드시 아래 형태의 문구를 출력하고 Sto
 ## 진행 규칙
 
 - 한 번에 한 블록씩 진행한다
-- "다음", "skip", 블록 번호/이름으로 이동한다
+- **자유롭게 건너뛰기 가능**: 사용자가 **"skip"**, **"다음"**, **블록 번호** (예: "Block 3-5" 또는 "3-5")를 입력하면 해당 블록으로 이동한다. 순서대로 진행하지 않아도 되며, 이미 아는 내용은 건너뛰어도 된다.
 - Claude Code 관련 질문이 오면 claude-code-guide 에이전트(내장 도구)로 답변한다. 답변 후 사용자가 직접 따라할 수 있게 단계별로 안내하고, 질문할 때는 AskUserQuestion을 사용한다. 내장 에이전트 답변이 부정확하다고 판단되면, 공식 문서를 `curl`로 파일에 저장한 뒤 Read 툴로 꼼꼼히 읽고 정확한 정보로 다시 답한다 (WebFetch는 요약/손실 위험이 있으므로 사용하지 않는다)
 - 프로파일 변경을 원하면 스킬 재시작 후 "다시 설정" 선택
 
 ---
 
 ## Block 0: Setup (Phase A)
+
+---
+
+📍 **현재 위치: Block 0 (Setup) / 13 블록 중 첫 시작**
+
+**지금 배울 것:**
+- Claude Code 설치 방법
+- 첫 대화 시작하기
+- CLAUDE.md 파일 만들기
+
+**앞으로 배울 것:**
+- Block 1~2: Claude Code 체험 + 왜 CLI인지 이해
+- Block 3: 7개 핵심 기능 (CLAUDE.md, Skill, MCP, Subagent, Agent Teams, Hook, Plugin)
+- Block 4: CLI + Git + GitHub 기초
+
+---
 
 ### 실행 흐름
 
@@ -393,6 +409,24 @@ Phase A의 마지막에는 반드시 아래 형태의 문구를 출력하고 Sto
 ---
 
 ## Block 1: Experience (Phase A)
+
+---
+
+📍 **현재 위치: Block 1 (Experience) / 13 블록 중**
+
+**지금까지 배운 것:**
+- Block 0: Claude Code 설치 완료
+
+**지금 배울 것:**
+- Working Backward 데모 3가지 체험
+- Claude Code가 실제로 어떻게 동작하는지 직접 경험
+
+**앞으로 배울 것:**
+- Block 2: 왜 CLI인지, 왜 터미널인지 이해
+- Block 3: 7개 핵심 기능 (CLAUDE.md, Skill, MCP, Subagent, Agent Teams, Hook, Plugin)
+- Block 4: CLI + Git + GitHub 기초
+
+---
 
 ### 실행 흐름
 
@@ -680,6 +714,23 @@ Phase A의 마지막에는 반드시 아래 형태의 문구를 출력하고 Sto
 
 ## Block 3-1: CLAUDE.md (Phase A)
 
+---
+
+📍 **현재 위치: Block 3-1 (CLAUDE.md) / 13 블록 중**
+
+**지금까지 배운 것:**
+- Block 0~2: Claude Code 설치, 체험, CLI 이유 이해
+
+**지금 배울 것:**
+- CLAUDE.md로 프로젝트별 규칙 저장
+- Claude가 프로젝트 컨텍스트를 기억하게 만들기
+
+**앞으로 배울 것:**
+- Skill, MCP, Subagent, Agent Teams, Hook, Plugin (6개 기능)
+- Block 4: CLI + Git + GitHub 기초
+
+---
+
 ### 실행 흐름
 
 1. **Read reference 파일**
@@ -895,6 +946,23 @@ Phase A의 마지막에는 반드시 아래 형태의 문구를 출력하고 Sto
 
 ## Block 3-2: Skill (Phase A)
 
+---
+
+📍 **현재 위치: Block 3-2 (Skill) / 13 블록 중**
+
+**지금까지 배운 것:**
+- CLAUDE.md: 프로젝트 규칙 저장
+
+**지금 배울 것:**
+- Skill로 반복 작업 자동화
+- 한 줄 명령어로 복잡한 작업 실행
+
+**앞으로 배울 것:**
+- MCP, Subagent, 쉬어가기, Agent Teams, Hook, Plugin
+- Block 4: CLI + Git + GitHub 기초
+
+---
+
 ### 실행 흐름
 
 1. **Read reference 파일**
@@ -1064,6 +1132,24 @@ Phase A의 마지막에는 반드시 아래 형태의 문구를 출력하고 Sto
 
 ## Block 3-3: MCP (Phase A)
 
+---
+
+📍 **현재 위치: Block 3-3 (MCP) / 13 블록 중**
+
+**지금까지 배운 것:**
+- CLAUDE.md: 프로젝트 규칙 저장
+- Skill: 반복 작업 자동화
+
+**지금 배울 것:**
+- MCP로 외부 도구 연동 (Slack, Calendar, Notion 등)
+- "Slack 메시지 읽어줘" 한 줄로 실행
+
+**앞으로 배울 것:**
+- Subagent, 쉬어가기, Agent Teams, Hook, Plugin
+- Block 4: CLI + Git + GitHub 기초
+
+---
+
 ### 실행 흐름
 
 1. **Read reference 파일**
@@ -1198,6 +1284,24 @@ Phase A의 마지막에는 반드시 아래 형태의 문구를 출력하고 Sto
 ---
 
 ## Block 3-4: Subagent (Phase A)
+
+---
+
+📍 **현재 위치: Block 3-4 (Subagent) / 13 블록 중**
+
+**지금까지 배운 것:**
+- CLAUDE.md, Skill, MCP
+
+**지금 배울 것:**
+- Subagent로 대용량 작업 위임
+- 독립된 공간에서 작업 처리하고 요약만 받기
+
+**앞으로 배울 것:**
+- 쉬어가기 (터미널 & Status Line)
+- Agent Teams, Hook, Plugin
+- Block 4: CLI + Git + GitHub 기초
+
+---
 
 ### 실행 흐름
 
@@ -1337,197 +1441,6 @@ Phase A의 마지막에는 반드시 아래 형태의 문구를 출력하고 Sto
 ## Block 3-Break: 쉬어가기 (Phase A만)
 
 > 이 블록은 퀴즈 없이 가볍게 진행한다. Phase A만 있고 Phase B는 없다.
-
-### 실행 흐름
-
-1. **Read reference 파일**
-   ```
-   Read references/block3-break.md
-   ```
-
-2. **EXPLAIN 섹션 — 원본 그대로 출력**
-
-   - 터미널 추천 (Ghostty, iTerm2, WezTerm)
-   - Status Line 설정 방법
-
-3. **EXECUTE 섹션**
-
-   두 가지 실습 안내:
-
-   **1. Status Line 설정:**
-   ```
-   /statusline 모델 이름과 컨텍스트 사용률을 프로그레스 바로 보여줘
-   ```
-
-   **터미널 경험별 차별화:**
-   - 처음이에요: "Claude에게 위 명령을 그대로 입력하면, 자동으로 설정 스크립트를 만들어줍니다"
-   - 해본 적 있어요: "위 명령을 Claude에게 입력해보세요"
-   - 익숙해요: 간결하게 안내만
-
-   **2. 터미널 구경:**
-   - Ghostty, iTerm2, WezTerm 중 하나의 공식 사이트 방문해서 스크린샷 구경
-
-4. **Phase A 종료 문구 (수정됨)**
-
-   ```
-   ---
-   👆 위 내용을 직접 실행해보세요.
-   실행이 끝나면 "완료" 또는 "다음"이라고 입력하면 Block 3-5: Agent Teams로 이동합니다.
-   ```
-
-> **Phase B 없음.** 사용자가 "완료" 또는 "다음"이라고 하면 바로 Block 3-5로 진행한다.
-
-
-## Block 3-5: Agent Teams (Phase A)
-
-### 실행 흐름
-
-1. **Read reference 파일**
-   ```
-   Read references/block3-5-agent-teams.md
-   ```
-
-2. **Read 프로파일**
-   ```
-   Read ~/.claude/memory/user-profile.md
-   ```
-
-3. **공식 문서 URL 출력**
-   ```
-   📖 공식 문서: https://code.claude.com/docs/ko/agent-teams
-   ```
-
-4. **EXPLAIN 섹션 — 동적 생성**
-
-   **비유 생성 규칙 (직업별):**
-
-   | 직업 | 비유 |
-   |------|------|
-   | HR/인사 담당자 | "채용 프로젝트 팀" — 팀장이 일을 나누고(이력서 스크리닝, 면접 일정 조율, 합격자 통지), 팀원들이 각자 작업하며 서로 대화하고, 공유 칸반보드로 진행상황 관리 |
-   | 일반 사무/관리 | "부서 프로젝트 팀" — 보고서 작성, 데이터 수집, 발표 자료 제작을 나눠서 협업 |
-   | 백엔드/프론트엔드/풀스택 개발자 | "개발 팀" — 백엔드, 프론트엔드, 테스트 담당이 각자 작업하며 PR로 소통 |
-   | UI/UX 디자이너 | "디자인 프로젝트 팀" — 리서치, 디자인, 프로토타입 담당이 협업 |
-   | 제품 기획자/PM | "제품 개발 팀" — 기획, 디자인, 개발 담당이 각자 작업하며 이슈 트래커로 조율 |
-   | 데이터 분석가 | "분석 프로젝트 팀" — 데이터 수집, 정제, 분석, 시각화 담당이 협업 |
-   | 마케터/콘텐츠 제작자 | "캠페인 팀" — 기획, 콘텐츠 제작, 성과 분석 담당이 협업 |
-   | 연구원/학생 | "연구 팀" — 논문 조사, 실험, 분석, 작성 담당이 협업 |
-   | 기타/기본값 | 원본 비유 사용 |
-
-   **vs Subagent 설명 (공통):**
-   - Subagent: 부하 직원 (1:1 위임, 보고만 함)
-   - Agent Teams: 프로젝트 팀 (팀원끼리 직접 소통 + 공유 태스크 리스트)
-
-5. **EXECUTE 섹션**
-   ```
-   내 settings.json에 Agent Teams를 활성화하는 설정을 추가해줘
-   ```
-
-6. **Phase A 종료 문구**
-   ```
-   ---
-   👆 위 내용을 직접 실행해보세요.
-   실행이 끝나면 "완료" 또는 "다음"이라고 입력해주세요.
-   ```
-
----
-
-## Block 3-5: Agent Teams (Phase B)
-
-### 실행 흐름
-
-1. **settings.json 검증 + 퀴즈 출제**
-
-   정답: "각자 독립 인스턴스에서 서로 소통하며 협업"
-
-2. **실무 실험 과제 (직업별 차별화)**
-
-3. **다음 블록 이동** → Block 3-6: Hook
-
----
-
-## Block 3-6: Hook (Phase A)
-
-### 실행 흐름
-
-1. **Read reference + 프로파일 + 공식 문서 URL**
-   ```
-   📖 공식 문서: https://code.claude.com/docs/ko/hooks-guide
-   ```
-
-2. **EXPLAIN 섹션 — 직업별 비유 동적 생성**
-
-3. **EXECUTE 섹션**
-   ```
-   Hook이 뭔지 예시와 함께 설명해줘. 내 업무에서 쓸 수 있는 Hook 아이디어 3개도 제안해줘
-   ```
-   ```
-   Stop Hook을 추가해줘. 응답이 끝나면 현재 시간을 터미널에 출력하도록
-   ```
-
-4. **Phase A 종료 문구**
-
----
-
-## Block 3-6: Hook (Phase B)
-
-### 실행 흐름
-
-1. **퀴즈 출제**
-
-   정답: "특정 이벤트가 발생했을 때 자동으로"
-
-2. **실무 실험 과제 (직업별 차별화)**
-
-3. **다음 블록 이동** → Block 3-7: Plugin
-
----
-
-## Block 3-7: Plugin (Phase A)
-
-### 실행 흐름
-
-1. **Read reference + 프로파일 + 공식 문서 URL**
-   ```
-   📖 공식 문서: https://code.claude.com/docs/ko/plugins
-   📖 마켓플레이스: https://code.claude.com/docs/ko/discover-plugins
-   ```
-
-2. **EXPLAIN 섹션 — 직업별 비유 동적 생성**
-
-3. **EXECUTE 섹션 — 3단계 실습**
-   ```
-   /plugin
-   /plugin marketplace add obra/superpowers-marketplace
-   /plugin install superpowers@superpowers-marketplace
-   /plugin marketplace add team-attention/plugins-for-claude-natives
-   /plugin install clarify
-   ```
-
-4. **Phase A 종료 문구**
-
----
-
-## Block 3-7: Plugin (Phase B)
-
-### 실행 흐름
-
-1. **퀴즈 출제**
-
-   정답: "Skill + MCP + Hook + Agent 등을 하나의 패키지로"
-
-2. **실무 실험 과제 (직업별 차별화)**
-
-3. **다음 블록 이동** → Block 3-Summary
-
----
-
----
-
-
-
-## Block 3-Break: 쉬어가기 (Phase A만)
-
-> 이 블록은 퀴즈 없이 가볍게 진행한다. Phase A만 있고 Phase B는 없다.
 > 사용자가 "완료" 또는 "다음"이라고 하면 Block 3-5로 넘어간다.
 
 ### 실행 흐름
@@ -1601,6 +1514,25 @@ Phase A의 마지막에는 반드시 아래 형태의 문구를 출력하고 Sto
 ---
 
 ## Block 3-5: Agent Teams (Phase A)
+
+---
+
+📍 **현재 위치: Block 3-5 (Agent Teams) / 13 블록 중**
+
+**지금까지 배운 것:**
+- 핵심 기능 4개: CLAUDE.md, Skill, MCP, Subagent
+- 쉬어가기 완료
+
+**지금 배울 것:**
+- Agent Teams로 팀 협업
+- 여러 에이전트가 동시에 작업하며 소통
+
+**앞으로 배울 것:**
+- Hook, Plugin (2개 기능)
+- 7개 기능 요약
+- Block 4: CLI + Git + GitHub 기초
+
+---
 
 ### 실행 흐름
 
@@ -1789,6 +1721,24 @@ Phase A의 마지막에는 반드시 아래 형태의 문구를 출력하고 Sto
 
 ## Block 3-6: Hook (Phase A)
 
+---
+
+📍 **현재 위치: Block 3-6 (Hook) / 13 블록 중**
+
+**지금까지 배운 것:**
+- 핵심 기능 5개: CLAUDE.md, Skill, MCP, Subagent, Agent Teams
+
+**지금 배울 것:**
+- Hook으로 이벤트 자동화
+- 특정 시점에 자동으로 실행 (100% 확실)
+
+**앞으로 배울 것:**
+- Plugin (마지막 핵심 기능!)
+- 7개 기능 요약
+- Block 4: CLI + Git + GitHub 기초
+
+---
+
 ### 실행 흐름
 
 1. **Read reference 파일**
@@ -1967,6 +1917,23 @@ Phase A의 마지막에는 반드시 아래 형태의 문구를 출력하고 Sto
 ---
 
 ## Block 3-7: Plugin (Phase A)
+
+---
+
+📍 **현재 위치: Block 3-7 (Plugin) / 13 블록 중**
+
+**지금까지 배운 것:**
+- 핵심 기능 6개: CLAUDE.md, Skill, MCP, Subagent, Agent Teams, Hook
+
+**지금 배울 것:**
+- Plugin으로 모든 기능 패키징
+- 한 줄로 팀 전체에 배포
+
+**앞으로 배울 것:**
+- 7개 기능 요약 (전체 복습)
+- Block 4: CLI + Git + GitHub 기초 (마지막 블록!)
+
+---
 
 ### 실행 흐름
 
@@ -2250,6 +2217,25 @@ Phase A의 마지막에는 반드시 아래 형태의 문구를 출력하고 Sto
 
 ## Block 4: Basics (Phase A)
 
+---
+
+📍 **현재 위치: Block 4 (Basics) / 13 블록 중 마지막!**
+
+**지금까지 배운 것:**
+- 🎉 **Claude Code 전체 기능 학습 완료!**
+  - 7개 핵심 기능: CLAUDE.md, Skill, MCP, Subagent, Agent Teams, Hook, Plugin
+
+**지금 배울 것:**
+- CLI, Git, GitHub 기초
+- 터미널 명령어 이해하기
+- 온보딩 마무리 🎊
+
+**앞으로 배울 것:**
+- 온보딩 완료 후 실무 적용!
+- 당신의 업무에 Claude Code 통합하기
+
+---
+
 ### 실행 흐름
 
 1. **Read reference 파일**
@@ -2470,7 +2456,64 @@ Phase A의 마지막에는 반드시 아래 형태의 문구를 출력하고 Sto
 3. 파일 없음 또는 재설정 시 → 3개 질문으로 프로파일 수집
 4. 프로파일 저장
 
-### 2단계: 블록 선택
+### 2단계: 온보딩 가이드 안내
+
+프로파일링이 완료되면 블록 선택 전에 아래 온보딩 가이드를 표시합니다:
+
+```markdown
+---
+
+🎉 **환영합니다!**
+
+프로파일 설정이 완료되었습니다. 이제 본격적으로 Claude Code를 배워보겠습니다.
+
+## 📖 이 온보딩의 구조
+
+**1. 13개 블록으로 구성**
+- Block 0 (Setup) → Block 1 (Experience) → Block 2 (Why)
+- Block 3-1~3-7 (7개 핵심 기능) → Block 3-Summary (요약)
+- Block 4 (Basics: CLI + Git + GitHub)
+
+**2. 각 블록은 2단계 (Phase A → Phase B)**
+- **Phase A**: 개념 설명 + 실습 안내
+  - Claude가 설명하고, **당신이 직접 해봅니다**
+  - "완료" 또는 "다음"이라고 입력하면 Phase B로 이동
+- **Phase B**: 퀴즈 + 실무 과제
+  - 이해도 확인 퀴즈 (정답/오답 피드백)
+  - **당신의 실제 업무에 적용하는 과제**
+
+**3. 자유롭게 이동 가능 (이미 아는 내용은 건너뛰세요!)**
+
+**✅ 스킵 방법 3가지:**
+1. **"skip" 또는 "다음"** 입력 → 다음 블록으로 바로 이동
+2. **"Block 3-5"** 입력 → 특정 블록으로 점프
+3. **"3-5"** (번호만) 입력 → 특정 블록으로 점프
+
+**언제 스킵하면 좋을까요?**
+- ✓ 이미 아는 내용일 때 (예: CLAUDE.md를 이미 쓰고 있다면 Block 3-1 스킵)
+- ✓ 지금 당장 필요 없는 내용일 때 (예: MCP는 나중에 배우고 싶다면 Block 3-3 스킵)
+- ✓ 순서를 바꿔서 배우고 싶을 때 (Block 4부터 시작해도 됩니다!)
+
+**순서대로 안 해도 됩니다. 자유롭게 이동하세요!**
+
+## 💡 진행 팁
+
+**각 블록마다 이렇게 표시됩니다:**
+```
+📍 현재 위치: Block 3-2 / 13 블록 중
+지금까지: CLAUDE.md로 프로젝트 규칙 저장
+지금 배울 것: Skill로 반복 작업 자동화
+앞으로: MCP, Subagent 등 5개 기능
+```
+
+**중간중간 "지금까지 뭘 했고, 앞으로 뭘 할지" 계속 알려드립니다!**
+
+---
+
+준비되셨나요? 아래 커리큘럼에서 시작할 블록을 선택해주세요.
+```
+
+### 3단계: 블록 선택
 
 커리큘럼 테이블 표시:
 
