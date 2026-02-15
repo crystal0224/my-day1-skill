@@ -1,4 +1,4 @@
-# Block 0: Setup
+# 미션 0: Setup
 
 ## EXPLAIN
 
@@ -86,7 +86,7 @@ AskUserQuestion({
     "question": "설치와 첫 대화까지 완료했나요?",
     "header": "Setup 확인",
     "options": [
-      {"label": "모두 완료!", "description": "Block 1로 이동"},
+      {"label": "모두 완료!", "description": "미션 1로 이동"},
       {"label": "아직 진행 중", "description": "더 시간이 필요함"},
       {"label": "트러블슈팅 필요", "description": "설치나 실행에 문제 발생"}
     ],
@@ -95,4 +95,4 @@ AskUserQuestion({
 })
 ```
 
-> Block 0은 퀴즈 대신 완료 확인만 한다.
+> 미션 0은 퀴즈 대신 완료 확인만 한다.

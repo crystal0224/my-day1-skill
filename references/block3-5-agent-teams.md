@@ -1,4 +1,4 @@
-# Block 3-5: Agent Teams
+# 미션 3-5: Agent Teams
 
 > **Phase A 시작 시 반드시 아래 형태로 출력한다:**
 > ```
@@ -42,7 +42,7 @@ Agent Teams는 **기본적으로 꺼져 있다.** `settings.json`에 환경 변�
 }
 ```
 
-> 이미 다른 설정이 있으면 `env` 블록 안에 한 줄만 추가하면 된다.
+> 이미 다른 설정이 있으면 `env` 미션 안에 한 줄만 추가하면 된다.
 >
 > ⚠️ **Ghostty 사용자 참고**: Agent Teams의 분할 창(tmux) 모드는 Ghostty에서 지원되지 않는다.
 > 기본 In-process 모드는 정상 동작하니 걱정하지 않아도 된다.
