@@ -105,6 +105,174 @@ echo "잘못된 내용" > ~/.claude/memory/user-profile.md
 
 ---
 
+## 시나리오 5: Block 3-2 (Skill) 개인화 검증
+
+### 준비
+프로파일 수동 생성 (HR):
+```bash
+cat > ~/.claude/memory/user-profile.md << 'EOF'
+# 사용자 프로파일
+
+- 직업: HR/인사 담당자
+- 전공: 경영/경제
+- 터미널 경험: 처음이에요
+
+생성일: 2026-02-15
+EOF
+```
+
+### 실행
+1. `/my-day1` 실행
+2. Block 3-2 선택
+
+### 예상 결과 (HR)
+- [ ] Phase A 비유: "업무 매뉴얼처럼 반복 작업을 문서화"
+- [ ] Phase A 예시: "월간 보고서 생성", "신입 온보딩 체크리스트"
+- [ ] Phase A 종료 문구 출력 후 STOP
+- [ ] Phase B 퀴즈 출제
+- [ ] Phase B 실무 과제: "매주 반복하는 보고서 작업을 스킬 아이디어로 정리"
+
+### 프로파일 변경 (개발자) 후 재실행
+```bash
+cat > ~/.claude/memory/user-profile.md << 'EOF'
+# 사용자 프로파일
+
+- 직업: 풀스택 개발자
+- 전공: 컴퓨터공학/IT
+- 터미널 경험: 익숙해요
+
+생성일: 2026-02-15
+EOF
+```
+
+### 예상 결과 (개발자)
+- [ ] Phase A 비유: "npm scripts처럼 명령어 묶음"
+- [ ] Phase A 예시: "테스트 + 빌드 + 배포 자동화"
+- [ ] Phase B 실무 과제: "테스트 명령어 시퀀스를 스킬로 구상"
+
+### 프로파일 변경 (디자이너) 후 재실행
+```bash
+cat > ~/.claude/memory/user-profile.md << 'EOF'
+# 사용자 프로파일
+
+- 직업: UI/UX 디자이너
+- 전공: 디자인/예술
+- 터미널 경험: 해본 적 있어요
+
+생성일: 2026-02-15
+EOF
+```
+
+### 예상 결과 (디자이너)
+- [ ] Phase A 비유: "Figma 플러그인처럼 작업 자동화"
+- [ ] Phase A 예시: "디자인 파일 export 자동화"
+- [ ] Phase B 실무 과제: "디자인 파일 정리 프로세스를 스킬로 작성"
+
+---
+
+## 시나리오 6: Block 4 (Basics) 터미널 경험별 차이
+
+### 준비 (터미널 처음)
+```bash
+cat > ~/.claude/memory/user-profile.md << 'EOF'
+# 사용자 프로파일
+
+- 직업: HR/인사 담당자
+- 전공: 경영/경제
+- 터미널 경험: 처음이에요
+
+생성일: 2026-02-15
+EOF
+```
+
+### 실행
+1. `/my-day1` 실행
+2. Block 4 선택
+
+### 예상 결과 (처음이에요)
+- [ ] CLI 명령어 기초부터 상세 설명
+- [ ] 터미널 여는 법 포함
+- [ ] Git 설명: "문서 버전 관리에 Git 사용"
+- [ ] Phase A 종료 문구 출력 후 STOP
+
+### 프로파일 변경 (익숙해요)
+```bash
+cat > ~/.claude/memory/user-profile.md << 'EOF'
+# 사용자 프로파일
+
+- 직업: 백엔드 개발자
+- 전공: 컴퓨터공학/IT
+- 터미널 경험: 익숙해요
+
+생성일: 2026-02-15
+EOF
+```
+
+### 예상 결과 (익숙해요)
+- [ ] CLI 설명 간소화 (Claude Code 관련 팁만)
+- [ ] 터미널 여는 법 생략
+- [ ] Git 설명: "코드 협업의 기본"
+- [ ] Phase B 퀴즈 3개 연속 (CLI, Git, GitHub)
+
+---
+
+## 시나리오 7: 전체 블록 순차 진행
+
+### 준비
+```bash
+cat > ~/.claude/memory/user-profile.md << 'EOF'
+# 사용자 프로파일
+
+- 직업: 제품 기획자/PM
+- 전공: 경영/경제
+- 터미널 경험: 해본 적 있어요
+
+생성일: 2026-02-15
+EOF
+```
+
+### 실행
+1. `/my-day1` 실행
+2. Block 0부터 순서대로 진행
+3. 각 블록 Phase A 후 "완료" 입력
+4. Phase B 진행 후 "다음" 선택
+
+### 예상 결과
+- [ ] Block 0 (Setup): 설치 안내, 퀴즈 없음
+- [ ] Block 1 (Experience): 데모 3가지, 체험 소감 질문
+- [ ] Block 2 (Why): 퀴즈 1 (Phase A), 퀴즈 2 + 영상 (Phase B)
+- [ ] Block 3-1 (CLAUDE.md): 비유 + 퀴즈 + 실무 과제
+- [ ] Block 3-2 (Skill): 비유 + 퀴즈 + 실무 과제
+- [ ] Block 3-3 (MCP): 비유 + 퀴즈 + 실무 과제
+- [ ] Block 3-4 (Subagent): 비유 + 퀴즈 + 실무 과제
+- [ ] Block 3-Break: 터미널 소개, Phase B 없음
+- [ ] Block 3-5 (Agent Teams): 비유 + 퀴즈 + 실무 과제
+- [ ] Block 3-6 (Hook): 비유 + 퀴즈 + 실무 과제
+- [ ] Block 3-7 (Plugin): 비유 + 퀴즈 + 실무 과제
+- [ ] Block 3-Summary: 7개 기능 요약, Phase B 없음
+- [ ] Block 4 (Basics): CLI+Git+GitHub, 퀴즈 3개, 완료 축하
+- [ ] 블록 간 이동 정상 동작 (다음 블록 AskUserQuestion)
+
+---
+
+## 시나리오 8: 블록 점프 (비순차 진행)
+
+### 준비
+시나리오 7과 동일한 프로파일
+
+### 실행
+1. `/my-day1` 실행
+2. 커리큘럼에서 Block 3-5 직접 선택
+3. Phase A/B 진행
+4. 다음 블록 안내에서 Block 4로 점프
+
+### 예상 결과
+- [ ] Block 3-5부터 바로 시작 가능
+- [ ] Block 3-5 개인화 정상 출력 (PM 비유: "애자일 스프린트 팀처럼")
+- [ ] 다음 블록으로 정상 이동
+
+---
+
 ## 검증 체크리스트
 
 테스트 완료 후 확인:
@@ -118,3 +286,11 @@ echo "잘못된 내용" > ~/.claude/memory/user-profile.md
 | 5 | STOP PROTOCOL 준수 (Phase A에서 AskUserQuestion은 프로파일링만) | [ ] |
 | 6 | 실무 과제 직업별 맞춤 출력 | [ ] |
 | 7 | 에러 시 Fallback 작동 | [ ] |
+| 8 | 13개 블록 모두 Phase A/B 구현 확인 | [ ] |
+| 9 | Block 3-2 (Skill) 직업별 비유 3가지 차이 | [ ] |
+| 10 | Block 4 (Basics) 터미널 경험별 상세도 차이 | [ ] |
+| 11 | 블록 간 이동 정상 동작 (AskUserQuestion) | [ ] |
+| 12 | 특수 블록 처리 (Block 0: 퀴즈 없음, Block 3-Break/3-Summary: Phase B 없음) | [ ] |
+| 13 | 전체 온보딩 완료 메시지 (Block 4 Phase B 마지막) | [ ] |
+| 14 | 커리큘럼 테이블 13개 블록 표시 | [ ] |
+| 15 | References 파일 13개 존재 및 정상 로드 | [ ] |
