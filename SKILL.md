@@ -629,6 +629,17 @@ CLI, 터미널, git, commit, CLAUDE.md, Skill, MCP, Subagent, Agent Teams, Hook,
 
 ---
 
+💡 **왜 이 미션을 해야 하나요?**
+
+`references/motivation-stories.md`의 "미션 1: Experience" 섹션에서 사용자 직업에 맞는 스토리를 읽어 출력한다.
+
+**이 미션을 완료하면:**
+✓ Claude Code가 실제로 어떻게 동작하는지 직접 확인할 수 있습니다
+✓ 파일 생성, 수정, 실행을 직접 체험할 수 있습니다
+✓ "이걸 내 업무에 어떻게 쓸 수 있을지" 감이 잡힙니다
+
+---
+
 ### 실행 흐름
 
 1. **Read reference 파일**
@@ -932,6 +943,17 @@ CLI, 터미널, git, commit, CLAUDE.md, Skill, MCP, Subagent, Agent Teams, Hook,
 
 ---
 
+💡 **왜 이 미션을 해야 하나요?**
+
+`references/motivation-stories.md`의 "미션 3-1: CLAUDE.md" 섹션에서 사용자 직업에 맞는 스토리를 읽어 출력한다.
+
+**이 미션을 완료하면:**
+✓ 프로젝트 규칙을 한 번만 적어두면 Claude가 매번 기억합니다
+✓ 반복 설명 없이 일관된 결과를 받을 수 있습니다
+✓ 팀 컨벤션, 브랜드 가이드 등을 자동으로 적용할 수 있습니다
+
+---
+
 ### 실행 흐름
 
 1. **Read reference 파일**
@@ -1161,6 +1183,17 @@ CLI, 터미널, git, commit, CLAUDE.md, Skill, MCP, Subagent, Agent Teams, Hook,
 **앞으로 배울 것:**
 - MCP, Subagent, 쉬어가기, Agent Teams, Hook, Plugin
 - 미션 4: CLI + Git + GitHub 기초
+
+---
+
+💡 **왜 이 미션을 해야 하나요?**
+
+`references/motivation-stories.md`의 "미션 3-2: Skill" 섹션에서 사용자 직업에 맞는 스토리를 읽어 출력한다.
+
+**이 미션을 완료하면:**
+✓ 반복 작업을 한 줄 명령어로 자동화할 수 있습니다
+✓ 나만의 업무 자동화 도구를 만들 수 있습니다
+✓ 팀원도 같은 Skill을 사용해 협업 효율을 높일 수 있습니다
 
 ---
 
@@ -1501,6 +1534,17 @@ CLI, 터미널, git, commit, CLAUDE.md, Skill, MCP, Subagent, Agent Teams, Hook,
 - 쉬어가기 (터미널 & Status Line)
 - Agent Teams, Hook, Plugin
 - 미션 4: CLI + Git + GitHub 기초
+
+---
+
+💡 **왜 이 미션을 해야 하나요?**
+
+`references/motivation-stories.md`의 "미션 3-4: Subagent" 섹션에서 사용자 직업에 맞는 스토리를 읽어 출력한다.
+
+**이 미션을 완료하면:**
+✓ 대량 작업을 Subagent에게 위임하고 결과만 받을 수 있습니다
+✓ 복잡한 작업을 분할해서 병렬 처리할 수 있습니다
+✓ 시간이 오래 걸리는 작업도 백그라운드에서 자동 처리됩니다
 
 ---
 
@@ -2332,6 +2376,17 @@ CLI, 터미널, git, commit, CLAUDE.md, Skill, MCP, Subagent, Agent Teams, Hook,
 
 > 미션 3-Summary는 Phase B 없이 Phase A만 진행한다. 퀴즈 없음.
 
+💡 **왜 이 미션을 해야 하나요?**
+
+`references/motivation-stories.md`의 "미션 3-Summary: 7개 기능 요약" 섹션에서 사용자 직업에 맞는 스토리를 읽어 출력한다.
+
+**이 미션을 완료하면:**
+✓ 7개 기능이 어떻게 연결되는지 전체 그림을 이해할 수 있습니다
+✓ 내 업무에 어떤 기능 조합이 최적인지 알 수 있습니다
+✓ 실무 적용 전략을 세울 수 있습니다
+
+---
+
 ### 실행 흐름
 
 1. **Read reference 파일**
@@ -2434,6 +2489,17 @@ CLI, 터미널, git, commit, CLAUDE.md, Skill, MCP, Subagent, Agent Teams, Hook,
 **앞으로 배울 것:**
 - 온보딩 완료 후 실무 적용!
 - 당신의 업무에 Claude Code 통합하기
+
+---
+
+💡 **왜 이 미션을 해야 하나요?**
+
+`references/motivation-stories.md`의 "미션 4: Basics" 섹션에서 사용자 직업에 맞는 스토리를 읽어 출력한다.
+
+**이 미션을 완료하면:**
+✓ CLI, Git, GitHub 기초를 이해하고 사용할 수 있습니다
+✓ 파일 버전 관리로 "최종_최종" 지옥에서 벗어납니다
+✓ 온보딩 완료! 실무에 Claude Code를 바로 적용할 수 있습니다
 
 ---
 
