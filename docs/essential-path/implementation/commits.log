@@ -1,0 +1,11 @@
+be31383 docs: Update README with Essential Path features
+90d388d content: Add 63 motivation stories for essential missions
+39cf132 test: Add Essential Path test scenarios and validation
+60098cc feat: Add help system for stuck users
+b24f7e1 feat: Add milestone badge system
+e4eade0 feat: Add motivation story system for essential missions
+58afe5e feat: Add inline glossary system with job-specific analogies
+5ea377c feat: Add learning path selection system
+f940144 feat: Add re-entry flow for returning users
+0497984 feat: Add mission classification and metadata
+713e5e8 refactor: Change 'Block' terminology to '미션' for non-technical users
