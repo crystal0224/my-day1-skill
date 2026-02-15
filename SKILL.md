@@ -297,10 +297,39 @@ Phase A의 마지막에는 반드시 아래 형태의 문구를 출력하고 Sto
 | 미션 3-Summary | `references/block3-summary.md` |
 | 미션 4 | `references/block4-basics.md` |
 | 용어 사전 | `references/glossary.md` |
+| 동기부여 스토리 | `references/motivation-stories.md` |
 
 > 파일 경로는 이 SKILL.md 기준 상대경로다.
 > 각 reference 파일은 `## EXPLAIN`, `## EXECUTE`, `## QUIZ` 섹션으로 구성된다.
 > `glossary.md`는 15개 기술 용어의 직업별 비유 사전이다.
+> `motivation-stories.md`는 필수 7개 미션별 직업별 동기부여 스토리 사전이다.
+
+---
+
+## 동기부여 스토리 시스템
+
+각 필수 미션 Phase A 시작 시, 사용자의 직업에 맞는 동기부여 스토리를 출력한다.
+
+**동작 방식:**
+1. `references/motivation-stories.md`에서 해당 미션 + 사용자 직업 섹션을 읽는다
+2. 해당 스토리를 Phase A 도입부에 출력한다 (📍 현재 위치 블록 아래, 실행 흐름 위)
+3. 스토리 구조: 공감 질문 → 실제 사례 (Before/After) → 이 미션 완료 후 얻는 것
+
+**출력 형식:**
+
+```
+💡 **왜 이 미션을 해야 하나요?**
+
+[직업별 동기부여 스토리]
+
+**이 미션을 완료하면:**
+✓ [구체적 성과 1]
+✓ [구체적 성과 2]
+✓ [구체적 성과 3]
+```
+
+**적용 대상:** 필수 미션 7개 (미션 0, 1, 3-1, 3-2, 3-4, 3-Summary, 4)
+**직업 매칭:** 프로파일의 직업 값으로 해당 섹션을 찾는다. 매칭 안 되면 "기타/직업 무관" 섹션을 사용한다.
 
 ---
 
@@ -431,6 +460,17 @@ CLI, 터미널, git, commit, CLAUDE.md, Skill, MCP, Subagent, Agent Teams, Hook,
 - 미션 1~2: Claude Code 체험 + 왜 CLI인지 이해
 - 미션 3: 7개 핵심 기능 (CLAUDE.md, Skill, MCP, Subagent, Agent Teams, Hook, Plugin)
 - 미션 4: CLI + Git + GitHub 기초
+
+---
+
+💡 **왜 이 미션을 해야 하나요?**
+
+`references/motivation-stories.md`의 "미션 0: Setup" 섹션에서 사용자 직업에 맞는 스토리를 읽어 출력한다.
+
+**이 미션을 완료하면:**
+✓ Claude Code를 내 컴퓨터에 설치할 수 있습니다
+✓ 첫 대화를 시작할 수 있습니다
+✓ CLAUDE.md 파일로 규칙을 저장할 준비가 됩니다
 
 ---
 
